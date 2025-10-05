@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { useBlog } from '../../../context/Context';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import ToastCustom from '@/components/ui/ToastCustom';
 
 const Schema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -60,7 +61,16 @@ export default function NewPostPage() {
 
   const submit = methods.handleSubmit(values => {
     const id = addPost(values);
-    router.push(`/post/${id}`);
+
+    ToastCustom.show(
+      '🎉 Blog post created successfully!',
+      'success',
+      () => router.push('/')
+    );
+
+    setTimeout(() => {
+      router.push('/');
+    }, 1500);
   });
 
   return (

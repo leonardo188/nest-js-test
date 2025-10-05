@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Providers from "./providers"; // 🔹 Tambahkan provider context
+import Providers from "./providers";
+import { Toaster } from 'react-hot-toast';
 
-// Font setup (biarkan sama)
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,14 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Metadata disesuaikan dengan project kamu
 export const metadata: Metadata = {
   title: "My Blog Studio",
   description:
-    "Create and manage blog posts with a clean, multi-step wizard built using Next.js 15 + TypeScript + Tailwind CSS.",
+    "Test Project",
 };
 
-// Root layout component
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`} >
+        <Toaster position="top-center" />
         <Providers>
           <main className="bg-white flex flex-col min-h-screen px-4 sm:px-6 lg:px-8 py-8">
             {children}
