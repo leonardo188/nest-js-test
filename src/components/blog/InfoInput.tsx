@@ -9,7 +9,7 @@ export default function InfoInput() {
   return (
     <div className="space-y-4">
       <FormField label="Blog Title" error={errors.title?.message as string}>
-        <TextInput placeholder="e.g. Understanding React Hooks" {...register('title')} />
+        <TextInput placeholder="e.g. Lorem Ipsum" {...register('title')} />
       </FormField>
 
       <FormField label="Author Name" error={errors.author?.message as string}>
